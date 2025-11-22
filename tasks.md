@@ -1,0 +1,22 @@
+# Project Tasks
+
+- [/] **Project Setup**
+    - [/] Initialize Python Environment (FastMCP, LangGraph, Gemini)
+    - [/] Initialize Next.js Frontend
+    - [x] **Create & Configure .env file** (User Action)
+- [ ] **Backend Implementation**
+    - [ ] **LLM Layer**: Implement `llm_factory.py` (Gemini)
+    - [ ] **Atomic Tools**: Implement Geocoding, Weather, Places, Routes, Costs
+    - [ ] **Graph Logic**:
+        - [ ] Implement `planner_node` (Gemini)
+        - [ ] Implement `synthesizer_node` (Gemini)
+        - [ ] Construct `StateGraph`
+- [ ] **MCP Server Implementation**
+    - [ ] Register Tools & Workflow
+    - [ ] Configure Server
+- [ ] **Frontend Implementation**
+    - [ ] Landing Page & Map
+    - [ ] MCP Client Integration
+- [ ] **Verification**
+    - [ ] Test LLM Connectivity
+    - [ ] End-to-End Test

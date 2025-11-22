@@ -1,0 +1,7 @@
+fastmcp
+langgraph
+langchain-google-genai
+python-dotenv
+httpx
+uvicorn
+pydantic
