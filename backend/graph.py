@@ -1,11 +1,20 @@
 from typing import TypedDict, List, Dict, Any, Annotated
 from langgraph.graph import StateGraph, END
-from backend.tools.geocoding import get_coordinates
-from backend.tools.weather import get_weather_forecast
-from backend.tools.places import search_attractions, search_restaurants
-from backend.tools.routing import calculate_route
-from backend.tools.costs import estimate_travel_costs
-from backend.llm_factory import get_llm
+try:
+    from backend.tools.geocoding import get_coordinates
+    from backend.tools.weather import get_weather_forecast
+    from backend.tools.places import search_attractions, search_restaurants
+    from backend.tools.routing import calculate_route
+    from backend.tools.costs import estimate_travel_costs
+    from backend.llm_factory import get_llm
+except ImportError:
+    # When running on Railway, imports are relative
+    from tools.geocoding import get_coordinates
+    from tools.weather import get_weather_forecast
+    from tools.places import search_attractions, search_restaurants
+    from tools.routing import calculate_route
+    from tools.costs import estimate_travel_costs
+    from llm_factory import get_llm
 from langchain_core.messages import HumanMessage, SystemMessage
 import json
 

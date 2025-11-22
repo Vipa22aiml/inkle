@@ -1,17 +1,28 @@
 from fastmcp import FastMCP
-from backend.graph import app as graph_app
-from backend.tools.geocoding import get_coordinates
-from backend.tools.weather import get_weather_forecast
-from backend.tools.places import search_attractions, search_restaurants
-from backend.tools.routing import calculate_route
-from backend.tools.costs import estimate_travel_costs
+try:
+    from backend.graph import app as graph_app
+    from backend.tools.geocoding import get_coordinates
+    from backend.tools.weather import get_weather_forecast
+    from backend.tools.places import search_attractions, search_restaurants
+    from backend.tools.routing import calculate_route
+    from backend.tools.costs import estimate_travel_costs
+    from backend.llm_factory import get_llm
+except ImportError:
+    # When running on Railway, imports are relative
+    from graph import app as graph_app
+    from tools.geocoding import get_coordinates
+    from tools.weather import get_weather_forecast
+    from tools.places import search_attractions, search_restaurants
+    from tools.routing import calculate_route
+    from tools.costs import estimate_travel_costs
+    from llm_factory import get_llm
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict, Any
 import json
-from backend.llm_factory import get_llm
+
 
 # Initialize FastMCP Server (for MCP Clients)
 mcp = FastMCP("TouristPlanner")
