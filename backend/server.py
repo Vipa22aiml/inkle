@@ -136,4 +136,6 @@ if __name__ == "__main__":
     # but for this Web App demo, we'll prioritize the HTTP server.
     # To run MCP, one would use `fastmcp run backend/server.py`
     # To run Web API, we use `python backend/server.py`
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
